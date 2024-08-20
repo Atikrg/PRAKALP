@@ -69,7 +69,7 @@ function Login() {
       // Encode password to base64
       const encodedPassword = Buffer.from(password).toString('base64');
 
-      const response = await axios.post('http://localhost:3001/api/getLogin', {
+      const response = await axios.post(`${process.env.SERVER_URL}/api/getLogin`, {
         email,
         pass: encodedPassword, // Send the encoded password to the backend
         rememberMe: rememberMe.toString() // Convert rememberMe boolean to string
@@ -99,7 +99,7 @@ function Login() {
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     try {
-      const response = await axios.get('http://localhost:3001/api/googlelogin', {
+      const response = await axios.get(`${process.env.SERVER_URL}/api/googlelogin`, {
         params: {
           token: credentialResponse.credential,
         },

@@ -39,7 +39,7 @@ function AggregateTableCellsView({ employee, isComplete, dates }) {
     };
 
     useEffect(() => {
-        axios.post('http://localhost:3001/api/empOverviewPrjIndividual', { employeeid: empId })
+        axios.post(`${process.env.SERVER_URL}/api/empOverviewPrjIndividual`, { employeeid: empId })
             .then(response => {
                 const { projectsCount, totalTasks, approvedTaskCount } = response.data;
                 setProjectsCount(projectsCount);
@@ -53,7 +53,7 @@ function AggregateTableCellsView({ employee, isComplete, dates }) {
     }, [empId]);
 
     useEffect(() => {
-        axios.post('http://localhost:3001/api/EmpOverviewtaskDtlsAggView', { empid: empId, iscomplete: isComplete })
+        axios.post(`${process.env.SERVER_URL}/api/EmpOverviewtaskDtlsAggView`, { empid: empId, iscomplete: isComplete })
             .then(response => {
                 const tasksResult = response.data;
                 const totalTasks = tasksResult.reduce((acc, task) => acc + 1, 0);
@@ -65,7 +65,7 @@ function AggregateTableCellsView({ employee, isComplete, dates }) {
     }, [empId, isComplete]);
 
     useEffect(() => {
-        axios.post('http://localhost:3001/api/emptaskDtlsAggTimes', { empid: empId, iscomplete: isComplete })
+        axios.post(`${process.env.SERVER_URL}/api/emptaskDtlsAggTimes`, { empid: empId, iscomplete: isComplete })
             .then(response => {
                 const { required, taken } = response.data;
                 setProjectTimeDetails(prevDetails => ({ ...prevDetails, required, taken }));
@@ -80,7 +80,7 @@ function AggregateTableCellsView({ employee, isComplete, dates }) {
         const startDate = new Date(dates[0].date).toISOString().slice(0, 10);
         const endDate = new Date(dates[dates.length - 1].date).toISOString().slice(0, 10);
 
-        axios.get('http://localhost:3001/api/empAggtasktimes', {
+        axios.get(`${process.env.SERVER_URL}/api/empAggtasktimes`, {
             params: {
                 startDate: startDate,
                 endDate: endDate,

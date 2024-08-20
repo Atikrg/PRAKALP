@@ -39,7 +39,7 @@ const SettingsDialog = ({ open, onClose }) => {
             projshowval_pv: activeLink === 'ev' ? checkedValues : null
         };
 
-        axios.post('http://localhost:3001/api/updateProjectSorting', data)
+        axios.post(`${process.env.SERVERURL}/api/updateProjectSorting`, data)
             .then(response => {
                 if (response.data.message === 'Success') {
                     setTimeout(() => setSuccessMessage('Projects sorted successfully !'), 1700);

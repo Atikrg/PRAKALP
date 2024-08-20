@@ -103,7 +103,7 @@ const EditProjectPopup = ({ open, handleClose, projectDetails, onSave }) => {
       return;
     }
 
-    fetch('http://localhost:3001/api/updateProject', {
+    fetch(`${process.env.SERVER_URL}/api/updateProject`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

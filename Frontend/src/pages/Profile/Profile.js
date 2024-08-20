@@ -83,7 +83,7 @@ const Profile = () => {
       };
 
       // Send POST request to update user
-      axios.post('http://localhost:3001/api/updateUser', payload, {
+      axios.post(`${process.env.SERVER_URL}/api/updateUser`, payload, {
         headers: {
           'Content-Type': 'application/json'
         }

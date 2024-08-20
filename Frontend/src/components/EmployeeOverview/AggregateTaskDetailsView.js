@@ -17,7 +17,7 @@ function AggregateTaskDetailsView({ project, employee, dates, localShowTimeDetai
 
     const fetchTaskDetails = async (assignBy, projectName) => {
         try {
-            const response = await axios.get('http://localhost:3001/api/empOverviewTaskDtlsIndAggView', {
+            const response = await axios.get(`${process.env.SERVER_URL}/api/empOverviewTaskDtlsIndAggView`, {
                 params: { assignBy, projectName }
             });
             setTaskDetails(response.data);
@@ -28,7 +28,7 @@ function AggregateTaskDetailsView({ project, employee, dates, localShowTimeDetai
 
     const fetchProjectTimeDetails = async (projectName, userId, startDate) => {
         try {
-            const response = await axios.get('http://localhost:3001/api/empOverviewIndAggPATimes', {
+            const response = await axios.get(`${process.env.SERVER_URL}/api/empOverviewIndAggPATimes`, {
                 params: { projectName, userId, startDate }
             });
 
@@ -94,7 +94,7 @@ function AggregateTaskDetailsView({ project, employee, dates, localShowTimeDetai
     const handleSaveEditProject = async (updatedProject) => {
         try {
             const response = await axios.post(
-                "http://localhost:3001/api/updateProject",
+                `${process.env.SERVER_URL}/api/updateProject`,
                 {
                     ProjectName: updatedProject.projectName,
                     Projectid: updatedProject.projectId,

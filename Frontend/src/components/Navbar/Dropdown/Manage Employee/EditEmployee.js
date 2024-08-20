@@ -98,7 +98,7 @@ const EditEmployee = ({ open, handleClose }) => {
       };
 
       // Fetch employee access data
-      axios.get('http://localhost:3001/api/editEmpAccessData', {
+      axios.get(`${process.env.SERVER_URL}/api/editEmpAccessData`, {
         params: { Empid: formData.id } // Assuming the id is set before this request
       })
         .then(response => {
@@ -220,7 +220,7 @@ const EditEmployee = ({ open, handleClose }) => {
       pagevalue
     };
 
-    axios.put('http://localhost:3001/api/updateemployee', requestData)
+    axios.put(`${process.env.SERVER_URL}/api/updateemployee`, requestData)
       .then(response => {
         showMessage(setSuccessMessage, "Employee updated successfully!");
       })
@@ -232,7 +232,7 @@ const EditEmployee = ({ open, handleClose }) => {
 
 
   useEffect(() => {
-    axios.post('http://localhost:3001/api/empDropdown', {
+    axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
       token: localStorage.getItem('token'),
     })
       .then(response => {
@@ -250,7 +250,7 @@ const EditEmployee = ({ open, handleClose }) => {
 
   const handleEmployeeDeleted = () => {
     // Fetch updated employees list
-    axios.post("http://localhost:3001/api/empDropdown", {
+    axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
       token: localStorage.getItem("token"),
     })
     .then(response => {

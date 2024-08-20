@@ -54,7 +54,7 @@ const EditTask = ({ onClose, taskData, updateTaskList }) => {
     const timeRequiredString = `${hoursRequired}:${minutesRequired}`;
     // console.log(timeRequiredString)
   
-    axios.put(`http://localhost:3001/editTask/${taskData.id_t}`, { project, taskName, timeRequired: timeRequiredString, description, isLastTask })
+    axios.put(`${process.env.SERVER_URL}/editTask/${taskData.id_t}`, { project, taskName, timeRequired: timeRequiredString, description, isLastTask })
       .then((response) => {
         console.log(response.data);
         updateTaskList(); // Update task list after editing

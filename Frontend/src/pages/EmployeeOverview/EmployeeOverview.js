@@ -138,7 +138,7 @@ function EmployeeOverview() {
   useEffect(() => {
     // Fetch employees
     axios
-      .post("http://localhost:3001/api/empDropdown", {
+      .post(`${process.env.SERVER_URL}/api/empDropdown`, {
         token: localStorage.getItem("token"),
       })
       .then((response) => {
@@ -193,7 +193,7 @@ function EmployeeOverview() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/taskOverview", {
+      const response = await fetch(`${process.env.SERVER_URL}/api/taskOverview`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -253,7 +253,7 @@ function EmployeeOverview() {
    // Define the callback function to handle successful deletion
    const handleEmployeeDeleted = () => {
     // Fetch updated employees list
-    axios.post("http://localhost:3001/api/empDropdown", {
+    axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
       token: localStorage.getItem("token"),
     })
     .then(response => {

@@ -38,7 +38,7 @@ function DeleteEmployeePopup({ open, handleClose,selectedEmployeeId, onEmployeeD
 
   const handleDeleteEmployee = async () => {
       try {
-          const response = await axios.post('http://localhost:3001/api/deleteEmployee', {
+          const response = await axios.post(`${process.env.SERVER_URL}/api/deleteEmployee`, {
               empid: selectedEmployeeId
           });
 

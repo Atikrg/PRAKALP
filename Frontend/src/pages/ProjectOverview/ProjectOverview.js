@@ -116,7 +116,7 @@ const ProjectOverview = () => {
   const fetchProjects = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3001/api/projectOverview', {
+      const response = await axios.get(`${process.env.SERVER_URL}/api/projectOverview`, {
         params: { token } // Send token as query parameter
       });
       setProjects(response.data.projects); // Set projects state with the response data
@@ -132,7 +132,7 @@ const ProjectOverview = () => {
   const fetchProjectDetails = async (projects) => {
     try {
       const projectNames = projects.map(project => project.ProjectName);
-      const response = await axios.get('http://localhost:3001/api/totalHrs', {
+      const response = await axios.get(`${process.env.SERVER_URL}/api/totalHrs`, {
         params: {
           employeeId: decryptToken(localStorage.getItem('token')).id,
           projectNames,
@@ -193,7 +193,7 @@ const ProjectOverview = () => {
   const handleSaveEditProject = async (updatedProject) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/updateProject",
+        `${process.env.SERVER_URL}/api/updateProject`,
         {
           ProjectName: updatedProject.projectName,
           Projectid: updatedProject.projectId,

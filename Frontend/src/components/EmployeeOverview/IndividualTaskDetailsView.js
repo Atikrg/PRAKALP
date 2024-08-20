@@ -88,7 +88,7 @@ function IndividualTaskDetailsView({ project, employee, dates, localShowTimeDeta
         }
 
         try {
-            const response = await axios.get('http://localhost:3001/api/empOverviewTaskDtlsIndIndView', {
+            const response = await axios.get(`${process.env.SERVER_URL}/api/empOverviewTaskDtlsIndIndView`, {
                 params: { assignBy, projectName }
             });
             cache.taskDetails = response.data;
@@ -101,7 +101,7 @@ function IndividualTaskDetailsView({ project, employee, dates, localShowTimeDeta
 
     const fetchTaskTimings = async (assignBy, projectName, taskDate) => {
         try {
-            const response = await axios.get('http://localhost:3001/api/empOverviewIndIndPATimes', {
+            const response = await axios.get(`${process.env.SERVER_URL}/api/empOverviewIndIndPATimes`, {
                 params: { assignedTo: assignBy, projectName, taskDates: taskDate }
             });
 
@@ -156,7 +156,7 @@ function IndividualTaskDetailsView({ project, employee, dates, localShowTimeDeta
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:3001/api/taskInfoDialog', {
+            const response = await axios.post(`${process.env.SERVER_URL}/api/taskInfoDialog`, {
                 token,
                 taskId,
             });

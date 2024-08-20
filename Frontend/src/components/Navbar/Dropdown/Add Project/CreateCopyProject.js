@@ -16,7 +16,7 @@ function CreateCopyProject({ open, onClose, onBack }) {
   
   useEffect(() => {
     if (selectedProject) {
-      axios.get(`http://localhost:3001/api/task?projectName=${selectedProject}`)
+      axios.get(`${process.env.SERVER_URL}/api/task?projectName=${selectedProject}`)
         .then((response) => {
           setTasks(response.data);
           const initialCheckedTasks = response.data.reduce((acc, task) => {
@@ -38,7 +38,7 @@ function CreateCopyProject({ open, onClose, onBack }) {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/getProjectNames');
+      const response = await axios.get(`${process.env.SERVER_URL}/api/getProjectNames`);
       setProjects(response.data);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -86,7 +86,7 @@ function CreateCopyProject({ open, onClose, onBack }) {
         return;
     } 
     try {
-      const response = await axios.post('http://localhost:3001/api/createCopyProject', {
+      const response = await axios.post(`${process.env.SERVER_URL}/api/createCopyProject`, {
         projectName,
         salesOrder,
         taskNames,

@@ -53,7 +53,7 @@ const IndividualTaskView = ({ project, dates, task, toggleShowTimeComplete, seco
     const fetchTaskDetails = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:3001/api/taskInfoDialog', {
+        const response = await axios.post(`${process.env.SERVER_URL}/api/taskInfoDialog`, {
           token,
           taskId: task.taskId,
         });
@@ -83,7 +83,7 @@ const IndividualTaskView = ({ project, dates, task, toggleShowTimeComplete, seco
       try {
         const formattedDates = dates.map(item => format(new Date(item.date), 'yyyy-MM-dd'));
         const responses = await Promise.all(formattedDates.map(formattedDate => (
-          axios.post('http://localhost:3001/api/indViewPATimes', {
+          axios.post(`${process.env.SERVER_URL}/api/indViewPATimes`, {
             projectName: project.projectName,
             dates: [formattedDate]
           })
