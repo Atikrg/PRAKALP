@@ -26,7 +26,7 @@ const DeleteTaskPopup = ({ open, handleClose, task }) => {
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem('token'); // Assuming you store your token in localStorage
-      const response = await axios.post(`${process.env.SERVER_URL}/api/deleteTask`, { taskId: task.taskId, token });
+      const response = await axios.post(`https://prakalp.onrender.com/api/deleteTask`, { taskId: task.taskId, token });
       
       if (response.data === 'Success') {
         showMessage(setSuccessMessage, 'Task deleted successfully.');

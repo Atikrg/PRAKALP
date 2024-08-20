@@ -67,7 +67,7 @@ const AddTaskModal = ({ projectName, open, onClose }) => {
     }
 
     try {
-      const response = await axios.post(`${process.env.SERVER_URL}/api/createTask`, {
+      const response = await axios.post(`https://prakalp.onrender.com/api/createTask`, {
         ProjectName: selectedProject,
         TaskName: taskName,
         Empname: selectedEmployee,
@@ -99,7 +99,7 @@ const AddTaskModal = ({ projectName, open, onClose }) => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}/api/getProjectNames`);
+      const response = await axios.get(`https://prakalp.onrender.com/api/getProjectNames`);
       setProjects(response.data);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -109,7 +109,7 @@ const AddTaskModal = ({ projectName, open, onClose }) => {
   //Select Employee api 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
+      const response = await axios.post(`https://prakalp.onrender.com/api/empDropdown`, {
         token: localStorage.getItem('token'),
       });
       setSelectedEmployee('');

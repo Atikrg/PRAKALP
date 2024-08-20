@@ -22,7 +22,7 @@ const DeleteProjectPopup = ({ open, handleClose, selectedProjectId, projectName 
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`${process.env.SERVER_URL}/api/deleteProject`, {
+      const response = await fetch(`https://prakalp.onrender.com/api/deleteProject`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

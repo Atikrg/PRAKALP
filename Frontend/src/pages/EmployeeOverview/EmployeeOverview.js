@@ -138,7 +138,7 @@ function EmployeeOverview() {
   useEffect(() => {
     // Fetch employees
     axios
-      .post(`${process.env.SERVER_URL}/api/empDropdown`, {
+      .post(`https://prakalp.onrender.com/api/empDropdown`, {
         token: localStorage.getItem("token"),
       })
       .then((response) => {
@@ -193,7 +193,7 @@ function EmployeeOverview() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch(`${process.env.SERVER_URL}/api/taskOverview`, {
+      const response = await fetch(`https://prakalp.onrender.com/api/taskOverview`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -253,7 +253,7 @@ function EmployeeOverview() {
    // Define the callback function to handle successful deletion
    const handleEmployeeDeleted = () => {
     // Fetch updated employees list
-    axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
+    axios.post(`https://prakalp.onrender.com/api/empDropdown`, {
       token: localStorage.getItem("token"),
     })
     .then(response => {

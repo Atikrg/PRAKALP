@@ -55,7 +55,7 @@ function Register() {
             return;
         }
         try {
-            const response = await axios.post(`${process.env.SERVER_URL}/api/register`, {
+            const response = await axios.post(`https://prakalp.onrender.com/api/register`, {
                 email,
                 fname,
                 lname,

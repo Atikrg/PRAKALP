@@ -53,7 +53,7 @@ const IndividualTaskView = ({ project, dates, task, toggleShowTimeComplete, seco
     const fetchTaskDetails = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.post(`${process.env.SERVER_URL}/api/taskInfoDialog`, {
+        const response = await axios.post(`https://prakalp.onrender.com/api/taskInfoDialog`, {
           token,
           taskId: task.taskId,
         });
@@ -83,7 +83,7 @@ const IndividualTaskView = ({ project, dates, task, toggleShowTimeComplete, seco
       try {
         const formattedDates = dates.map(item => format(new Date(item.date), 'yyyy-MM-dd'));
         const responses = await Promise.all(formattedDates.map(formattedDate => (
-          axios.post(`${process.env.SERVER_URL}/api/indViewPATimes`, {
+          axios.post(`https://prakalp.onrender.com/api/indViewPATimes`, {
             projectName: project.projectName,
             dates: [formattedDate]
           })

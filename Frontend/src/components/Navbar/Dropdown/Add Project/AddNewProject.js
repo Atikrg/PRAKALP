@@ -44,7 +44,7 @@ function AddNewProject({open,onClose}) {
         setErrorMessage("Please enter project name");
     } else {
         try {
-            const response = await axios.post(`${process.env.SERVER_URL}/api/addProject`, {
+            const response = await axios.post(`https://prakalp.onrender.com/api/addProject`, {
                 ProjectName: projectName,
                 sales_order: projectSalesOrder
             });

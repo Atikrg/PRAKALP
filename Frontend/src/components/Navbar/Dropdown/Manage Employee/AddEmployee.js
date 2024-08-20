@@ -269,7 +269,7 @@ const AddEmployee = ({ openDialog, handleClose  }) => {
 
     if (valid(Name, Email, Password, confirmPassword, Type, Location, Nickname)) {
       axios
-        .post(`${process.env.SERVER_URL}/api/addemployee`, requestData)
+        .post(`https://prakalp.onrender.com/api/addemployee`, requestData)
         .then((response) => {
           if (response.status === 200) {
             showMessage(setSuccessMessage, "Employee added successfully!");

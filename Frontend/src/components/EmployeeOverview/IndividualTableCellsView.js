@@ -61,7 +61,7 @@ function IndividualTableCellsView({ employee, isComplete, dates }) {
                 setProjects(cachedProjects[empId]);
             } else {
                 try {
-                    const response = await axios.get(`${process.env.SERVER_URL}/api/EmpOverviewPlusMinus`, {
+                    const response = await axios.get(`https://prakalp.onrender.com/api/EmpOverviewPlusMinus`, {
                         params: { empid: empId, U_type: empType }
                     });
                     setProjects(response.data);
@@ -86,7 +86,7 @@ function IndividualTableCellsView({ employee, isComplete, dates }) {
     const handleSaveEditProject = async (updatedProject) => {
         try {
             const response = await axios.post(
-                `${process.env.SERVER_URL}/api/updateProject`,
+                `https://prakalp.onrender.com/api/updateProject`,
                 {
                     ProjectName: updatedProject.projectName,
                     Projectid: updatedProject.projectId,

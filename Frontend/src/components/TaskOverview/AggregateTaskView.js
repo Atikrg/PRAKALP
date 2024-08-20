@@ -32,7 +32,7 @@ const AggregateTaskView = ({ project, dates, toggleShowTimeComplete, seconds2day
 
   const fetchProjectTimeDetails = async (projectName, userId, startDate) => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}/api/empOverviewIndAggPATimes`, {
+      const response = await axios.get(`https://prakalp.onrender.com/api/empOverviewIndAggPATimes`, {
         params: { projectName, userId, startDate }
       });
 

@@ -97,7 +97,7 @@ const LogsPopup = ({ open, handleClose, employee }) => {
   const fetchLogs = async () => {
     try {
       const response = await axios.post(
-        `${process.env.SERVER_URL}/api/employeeLogs`,
+        `https://prakalp.onrender.com/api/employeeLogs`,
         {
           employeeId: employee?.id,
           fromDate,

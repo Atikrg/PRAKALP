@@ -39,7 +39,7 @@ const EditTaskTeamLeadVersion = ({ open, handleClose, projectDetails }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(`${process.env.SERVER_URL}/api/getProjectNames`);
+        const response = await axios.get(`https://prakalp.onrender.com/api/getProjectNames`);
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -86,7 +86,7 @@ const EditTaskTeamLeadVersion = ({ open, handleClose, projectDetails }) => {
     };
 
     try {
-      const response = await axios.post(`${process.env.SERVER_URL}/api/saveEditTask`, taskData);
+      const response = await axios.post(`https://prakalp.onrender.com/api/saveEditTask`, taskData);
       if (response.data === 'Success') {
         showMessage(setSuccessMessage, 'Task saved successfully!');
       } else {

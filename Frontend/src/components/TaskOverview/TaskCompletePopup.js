@@ -91,7 +91,7 @@ const TaskCompletePopup = ({ open, task, handleClose, completionTime, timingId }
       return;
     } else {
       try {
-        const response = await axios.post(`${process.env.SERVER_URL}/api/completeTask`, taskCompleteData);
+        const response = await axios.post(`https://prakalp.onrender.com/api/completeTask`, taskCompleteData);
         if (response.data === 'Success') {
           setSuccessMessage('Task timimg changed successfully.')
           setTimeout(handleClose, 2500);

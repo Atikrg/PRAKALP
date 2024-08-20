@@ -59,7 +59,7 @@ const AssignTaskDialog = ({ open, onClose }) => {
       token:localStorage.getItem('token'),
     };
 
-    axios.post(`${process.env.SERVER_URL}/api/assignTask`, data)
+    axios.post(`https://prakalp.onrender.com/api/assignTask`, data)
       .then(response => {
         showMessage(setSuccessMessage, response.data);
         setTimeout(onClose, 1500); // Close after 1500 ms
@@ -97,7 +97,7 @@ const AssignTaskDialog = ({ open, onClose }) => {
   // API to fetch projects
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}/api/getProjectNames`);
+      const response = await axios.get(`https://prakalp.onrender.com/api/getProjectNames`);
       setProjects(response.data);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -107,7 +107,7 @@ const AssignTaskDialog = ({ open, onClose }) => {
   // API to fetch employees
   const fetchEmployees = async () => {
     try {
-      const response = await axios.post(`${process.env.SERVER_URL}/api/empDropdown`, {
+      const response = await axios.post(`https://prakalp.onrender.com/api/empDropdown`, {
         token: localStorage.getItem('token'),
       });
       setSelectedEmployeeId('');

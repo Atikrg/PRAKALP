@@ -103,7 +103,7 @@ const EditProjectPopup = ({ open, handleClose, projectDetails, onSave }) => {
       return;
     }
 
-    fetch(`${process.env.SERVER_URL}/api/updateProject`, {
+    fetch(`https://prakalp.onrender.com/api/updateProject`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

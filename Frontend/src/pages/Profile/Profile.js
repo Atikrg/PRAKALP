@@ -83,7 +83,7 @@ const Profile = () => {
       };
 
       // Send POST request to update user
-      axios.post(`${process.env.SERVER_URL}/api/updateUser`, payload, {
+      axios.post(`https://prakalp.onrender.com/api/updateUser`, payload, {
         headers: {
           'Content-Type': 'application/json'
         }
