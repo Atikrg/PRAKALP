@@ -8,7 +8,7 @@ import axios from 'axios';
 import { faEye, faEyeSlash, faTrashAlt, faPencilAlt, faPlus, faMinus, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import '../../pages/TaskOverview/TaskOverview.css';
-import { MenuItem } from '@material-ui/core';
+import { MenuItem } from '@mui/material';
 import EditEmployee from '../../components/Navbar/Dropdown/Manage Employee/EditEmployee';
 import LogsPopup from '../../components/EmployeeOverview/LogsPopup';
 import DeleteEmployeePopup from '../../components/EmployeeOverview/DeleteEmployeePopup';

@@ -21,7 +21,7 @@ import {
   TableCell,
   TableRow,
   TableBody,
-} from "@material-ui/core";
+} from "@mui/material/";
 import "./AddEmployee.css";
 import EditEmployee from "./EditEmployee";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
