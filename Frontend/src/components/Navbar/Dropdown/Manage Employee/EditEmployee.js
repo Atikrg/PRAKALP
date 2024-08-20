@@ -243,7 +243,7 @@ const EditEmployee = ({ open, handleClose }) => {
         }
       })
       .catch(error => {
-        console.error('Error fetching employees:', error);
+        console.error('Error  fetching employees:', error);
       });
   }, []);
 
